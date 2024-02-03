@@ -5,7 +5,7 @@ function Card(props) {
       <div className="card-main">
         <span>
           <h3>Greek Salad</h3>
-          <span>$12.99</span>
+          <p>$12.99</p>
         </span>
         <p>
           The famous greek salad of crispy lettuce, peppers, olives and our

@@ -1,8 +1,16 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { fireEvent, render, screen } from '@testing-library/react';
+import Bookingform from './Components/Bookingform';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('Renders the button text of reservation', () => {
+  render(<Bookingform availableTimes={['17:00','18:00']} occasions={['Birthday']} handleSubmit={()=> console.log('chill')}/>);
+  const text = screen.getByText("Occasion");
+  expect(text).toBeInTheDocument();
+});
+
+test('Testing input number of guests field', ()=>{
+  render(<Bookingform availableTimes={['17:00','18:00']} occasions={['Birthday']} handleSubmit={()=> console.log('chill')}/>);
+  const inputElement = screen.getByPlaceholderText('Please enter the number of guests');
+  expect(inputElement).toBeInTheDocument();
+  fireEvent.change(inputElement, {target : {value: 10}});
+  expect(inputElement).toHaveValue(10);
 });

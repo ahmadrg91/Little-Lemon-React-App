@@ -1,11 +1,10 @@
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Homepage from "./Components/Homepage";
+import ReserveTable from "./Components/ReserveTable";
 import Header from "./Components/Header";
 import Nav from "./Components/Nav";
-import Main from "./Components/Main";
-import Footer from "./Components/Footer";
-import Hero from "./Components/Hero";
-import Special from "./Components/Special";
-import Testimonials from "./Components/Testimonials";
-import About from "./Components/About";
+import ConfirmedBooking from "./Components/ConfirmedBooking";
 
 function App() {
   return (
@@ -13,13 +12,11 @@ function App() {
       <Header>
         <Nav />
       </Header>
-      <Main>
-        <Hero />
-        <Special />
-        <Testimonials />
-        <About />
-      </Main>
-      <Footer></Footer>
+      <Routes>
+        <Route path="/" element={<Homepage />}></Route>
+        <Route path="/reserve-a-table" element={<ReserveTable />}></Route>
+        <Route path="/bookingconfirmed" element={<ConfirmedBooking />}></Route>
+      </Routes>
     </>
   );
 }

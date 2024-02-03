@@ -14,7 +14,7 @@ body {
   font-family: 'Karla', sans-serif;
 }
 
-h1 , h2, h3{
+h1 ,h2 ,h3{
   font-family: 'Markazi Text', serif;
   line-height: 0.7;
   margin: 0;
@@ -119,6 +119,7 @@ main {
 #specials-section > div:nth-child(2) {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: 5rem 0;
 }
 
@@ -140,8 +141,21 @@ main {
   padding: 1rem 2rem;
 }
 
-.card-main  h3{
+.card-main > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.card-main h3{
   font-size: 2.4rem;
+}
+
+.card-main h3 ~ p {
+  font-size: 1.6rem;
+  color:#F4CE14;
+  font-weight: bold;
+  margin: 0;
 }
 
 .card-main p {
@@ -150,22 +164,18 @@ main {
   margin: 2rem 0;
 }
 
-.card-main > span {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.card-main > span span {
-  font-size: 1.6rem;
-  color:#F4CE14;
-}
-
 .card-main button {
   font-weight: bold;
   font-size: 1.6rem;
   border: none;
-  background-color: none;
+  background-color: transparent;
   padding: 1rem 0;
   cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  width: 20rem;
 }
