@@ -9,7 +9,6 @@ html {
 
 body {
   margin: 0;
-  display: flex;
   overflow-y: scroll;
   font-family: 'Karla', sans-serif;
 }
@@ -53,8 +52,8 @@ h2{
 header {
   display: flex;
   height: 7rem;
-  padding: 1rem 18vw;
   justify-content: space-between;
+  align-items: center;
 }
 
 header img {
@@ -95,7 +94,6 @@ main {
   grid-template-columns: 1fr 1fr;
   background-color: #495E57;
   color: white;
-  padding: 3rem 18vw;
   position: relative;
 }
 
@@ -120,20 +118,15 @@ main {
 
 /* Sepcials-section */
 
-#specials-section {
-  padding: 10rem 18vw 0 18vw;
-}
-
 #specials-section > div:first-child {
   display: flex;
   justify-content: space-between;
 }
 
 #specials-section > div:nth-child(2) {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 1vw;
-  justify-items: center;
+  display: flex;
+  justify-content: space-between;
+  row-gap: 2rem;
   flex-wrap: wrap;
   margin: 5rem 0;
 }
@@ -193,14 +186,14 @@ main {
 /* Testimonials */
 
 #testimonials-section {
-  padding: 10rem 18vw;
   background-color: #495E57;
 }
 
 #testimonials-section > div {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  column-gap: 0.5vw;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 1rem;
   margin: 5rem 0;
 }
 
@@ -234,7 +227,6 @@ main {
 /* About */
 
 #about-section {
-  padding: 10rem 18vw;
   display: flex;
   align-items: center;
   height: fit-content;
@@ -266,7 +258,6 @@ main {
 /* footer */
 
 footer {
-  padding: 10rem 18vw;
   display: flex;
   justify-content: space-between;
   background-color: #495E57;
@@ -314,10 +305,11 @@ form > input, form > select {
   font-family: 'Karla';
 }
 
-form > input[type="submit"] {
+form > input[type="submit"], .modal-background button {
   background-color:#495E57;
   color: white;
   border: none;
+  border-radius: 0.5rem;
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
@@ -331,4 +323,115 @@ form > input[type="submit"]:disabled {
 .error {
   color: red;
   font-size: 1.2rem;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-background > div {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 1rem;
+  background-color: white;
+  z-index: 2;
+  padding: 3rem 5rem;
+}
+
+.modal-background > div > div:first-child {
+  margin-bottom: 5rem;
+}
+
+.modal-background h3, .modal-background button {
+  font-size: initial;
+  font-family: 'Karla';
+  margin-top: 2rem;
+}
+
+.modal-background button {
+  width: 50%;
+  margin-top: 5rem;
+  padding: 0.6rem;
+}
+
+@media only screen and (min-width: 1025px) {
+  header {
+    padding: 1rem 18vw;
+  }
+  footer, section {
+    padding: 10rem 18vw;
+  }
+  #hero {
+  padding: 5rem 18vw;
+  }
+  #hero img {
+    right: 18vw;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  header {
+    padding: 1rem 10vw;
+  }
+  footer, section {
+    padding: 10rem 10vw;
+  }
+  #hero {
+  padding: 5rem 10vw;
+  }
+  #hero img {
+    right: 10vw;
+  }
+}
+
+@media only screen and (max-width: 856px){
+  header .largeonly {
+    display: none;
+  }
+  #hero img {
+    width: 28rem;
+    height: 28rem;
+  }
+}
+
+@media only screen and (max-width: 769px){
+  header .pconly {
+    display: none;
+  }
+  #hero img {
+    width: 25rem;
+    height: 25rem;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  #hero img, #about-section > div:last-child {
+    display: none;
+  }
+  #about-section > div {
+    width: 100%;
+  }
+  #hero {
+    grid-template-columns: 1fr;
+  }
+  header > nav{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 662px) {
+  .specials-card, .specials-card img, .testimonial-card {
+    width: 100%;
+    height: auto;
+  }
+
 }

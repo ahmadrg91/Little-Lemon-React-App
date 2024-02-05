@@ -11,18 +11,22 @@ function Bookingform({ availableTimes, occasions, handleSubmit }) {
   const formik = useFormik({
     initialValues: {
       resDate: `${year}-0${month}-0${day}`,
+      resTime: '17:00',
+      occasion: 'Birthday',
     },
     onSubmit: (values) => {
-      handleSubmit();
+      handleSubmit(values);
     },
     validationSchema: Yup.object({
       resDate: Yup.date().required("Please enter the reservation Date").min(`${year}-0${month}-0${day}`, "The date should not be in past"),
-        guests: Yup.number().min(1, "The minimum number of guests is 1").max(10, "The maximum number of guests for online reservation is 10"),
+      guests: Yup.number().min(1, "The minimum number of guests is 1").max(10, "The maximum number of guests for online reservation is 10"),
+      resTime: Yup.string().required(),
+      occasion: Yup.string().required(),
     }),
   });
 
   return (
-    <form>
+    <form onSubmit={(e) => {e.preventDefault();formik.handleSubmit();}}>
       <label htmlFor="res-date">Choose date</label>
       <input
         type="date"
@@ -32,7 +36,7 @@ function Bookingform({ availableTimes, occasions, handleSubmit }) {
       />
       <div className="error">{formik.errors.resDate}</div>
       <label htmlFor="res-time">Choose time</label>
-      <select id="res-time" name="res-time">
+      <select id="res-time" name="res-time" {...formik.getFieldProps("resTime")}>
         {availableTimes.map((item, i) => (
           <option>{item}</option>
         ))}
@@ -47,7 +51,7 @@ function Bookingform({ availableTimes, occasions, handleSubmit }) {
       />
       <div className="error">{formik.errors.guests}</div>
       <label htmlFor="occasion">Occasion</label>
-      <select id="occasion">
+      <select id="occasion" {...formik.getFieldProps("occasion")}>
         {occasions.map((item, i) => (
           <option>{item}</option>
         ))}
