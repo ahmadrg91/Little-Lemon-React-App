@@ -4,7 +4,6 @@ import Homepage from "./Components/Homepage";
 import ReserveTable from "./Components/ReserveTable";
 import Header from "./Components/Header";
 import Nav from "./Components/Nav";
-import ConfirmedBooking from "./Components/ConfirmedBooking";
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/reserve-a-table" element={<ReserveTable />}></Route>
-        <Route path="/bookingconfirmed" element={<ConfirmedBooking />}></Route>
       </Routes>
     </>
   );

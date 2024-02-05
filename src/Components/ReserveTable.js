@@ -1,10 +1,8 @@
 import Bookingform from "./Bookingform";
 import { useState, useReducer } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Main from "./Main";
+import { Link } from "react-router-dom";
 
 function ReserveTable() {
-  const navigate = useNavigate();
   let [isModal, setIsModal] = useState(false);
   const [selectedTime, setSelectedTime] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -23,7 +21,7 @@ function ReserveTable() {
     return removeTime(action.time);
   };
 
-  const initializeTimes = () => {
+  const initializeTimes = () => { //Passes the today's date to API and returns the available times
     // eslint-disable-next-line no-undef
     return getTimes(new Date().getDate());
   };
@@ -31,7 +29,7 @@ function ReserveTable() {
   const [availableTimes, dispatch] = useReducer(reducer, [], initializeTimes);
 
   const [occasions, setOccasions] = useState(["Birthday", "Anniversary"]);
-  const updateTime = (booked) => dispatch({ time: booked });
+  const updateTime = (booked) => dispatch({ time: booked }); //The dispatch function interacts with API and tells that this time is booked
 
   return (
     <>

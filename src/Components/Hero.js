@@ -16,7 +16,7 @@ function Hero() {
         </p>
         <Link to="reserve-a-table"><button className="call-to-action">Reserve a Table</button></Link>
       </div>
-        <img src="images/hero.jpg" alt="Little Lemon Dish"/>
+        <img src="images/restauranfood.jpg" alt="Little Lemon Dish"/>
     </section>
   );
 }
