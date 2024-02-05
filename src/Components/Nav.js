@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
-import ReserveTable from "./ReserveTable";
 
 function Nav(){
     return (
         <nav>
             <ul>
                 <li><Link to='/'>Home</Link></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Menu</a></li>
+                <li><a href="#about-section">About</a></li>
+                <li><a href="#specials-section">Menu</a></li>
                 <li><Link to='/reserve-a-table'>Reservations</Link></li>
-                <li><a href="#">Order Online</a></li>
+                <li><a href="#specials-section">Order Online</a></li>
                 <li><a href="#">Login</a></li>
             </ul>
         </nav>

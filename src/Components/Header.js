@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 function Header({ children }){
     return (
         <header>
-            <img src="images/logo.jpg" alt="logo"/>
+            <Link to="/"><img src="images/logo.jpg" alt="logo"/></Link>
             {children}
         </header>
     )

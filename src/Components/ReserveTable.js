@@ -29,14 +29,14 @@ function ReserveTable() {
 
   return (
     <>
-      <Main>
-        <h1>Reserve a Table</h1>
+      <main id='reserve-table'>
+        <h1 style={{color: 'black'}}>Reserve a Table</h1>
         <Bookingform
           availableTimes={availableTimes}
           occasions={occasions}
           handleSubmit={handleSubmit}
         />
-      </Main>
+      </main>
     </>
   );
 }

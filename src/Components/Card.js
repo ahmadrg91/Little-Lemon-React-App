@@ -1,16 +1,14 @@
 function Card(props) {
   return (
     <article className="specials-card">
-      <img src="images/lemon-dessert.jpg" alt="" />
+      <img src={props.imageURL} alt="" />
       <div className="card-main">
         <span>
-          <h3>Greek Salad</h3>
-          <p>$12.99</p>
+          <h3>{props.name}</h3>
+          <p>${props.price}</p>
         </span>
         <p>
-          The famous greek salad of crispy lettuce, peppers, olives and our
-          Chicago style feta cheese, garnished with crunchy garlic and rosemary
-          croutons
+          {props.description}
         </p>
           <button>
             Order a delivery{" "}
@@ -35,7 +33,7 @@ function Card(props) {
               />
             </svg>
           </button>
-        </div>
+      </div>
     </article>
   );
 }
